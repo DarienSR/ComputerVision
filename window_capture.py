@@ -16,6 +16,7 @@ class WindowCapture:
   def __init__(self, window_name):
     self.hwnd = win32gui.FindWindow(None, window_name) # we are selecting the window to capture based on it's name (what appears in the upper left corner)
     if not self.hwnd:
+      self.list_window_names()
       raise Exception('Window could not be found: {}'.format(window_name))
 
     # get the window dimensions
@@ -69,7 +70,6 @@ class WindowCapture:
     # see the discussion here:
     # https://github.com/opencv/opencv/issues/14866#issuecomment-580207109
     img = np.ascontiguousarray(img)
-
     return img
 
   # Helper function to list all the open window names
