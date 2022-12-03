@@ -26,7 +26,7 @@ class WindowCapture:
 
     # remove the window border and titlebar from the output
     border_pixels = 8
-    titlebar_pixels = 30
+    titlebar_pixels = 30 * 5 # * 5 gets rid of the menu on paint
     self.width = self.width - (border_pixels * 2)
     self.height = self.height - titlebar_pixels - border_pixels
     self.cropped_x = border_pixels
