@@ -22,11 +22,11 @@ We are using the `cv.findContours` function to detect the *location* of the shap
 
 This function joins all the continuous points together with the same color/intensity and in the final output, will draw a black line around the border of the shape:
 
-Input: ![image-20221203123743076](C:\Users\DLaptop\AppData\Roaming\Typora\typora-user-images\image-20221203123743076.png)
+Input: ![image-20221203123743076](./screenshots/yellow_square.png)
 
 Output (ignore shape classification for now):
 
-![image-20221203123726568](C:\Users\DLaptop\AppData\Roaming\Typora\typora-user-images\image-20221203123726568.png) 
+![image-20221203123726568](./screenshots/rectangle.png) 
 
 In order to achieve more accurate results, I could also further process the image by using canny edge detection, which is an edge detection algorithm. But our simple thresholding seems to do a decent job.
 
@@ -34,15 +34,15 @@ In order to achieve more accurate results, I could also further process the imag
 
 Once we have outline the shape, we now must determine what type of shape it is by going through the contours and determining how many sides the shape has.
 
-![image-20221203124246095](C:\Users\DLaptop\AppData\Roaming\Typora\typora-user-images\image-20221203124246095.png)
+![image-20221203124246095](./screenshots/cb1.png)
 
-![image-20221203124308394](C:\Users\DLaptop\AppData\Roaming\Typora\typora-user-images\image-20221203124308394.png)
+![image-20221203124308394](./screenshots/cb2.png)
 
 
 
 For the squares / rectangles, since they will each have four sides. We must calculate the aspect ratio of the outline shape. If all four sides are relatively equal, it is a square:
 
-![image-20221203124352671](C:\Users\DLaptop\AppData\Roaming\Typora\typora-user-images\image-20221203124352671.png)
+![image-20221203124352671](./screenshots/cb3.png)
 
 #### Step 4 Image Segmentation (based on shape color)
 
@@ -52,15 +52,15 @@ We are then segmenting the shapes based on pixel color similarity and specifying
 
 Shape Detection
 
-![ezgif.com-gif-maker (17)](C:\Users\DLaptop\Downloads\ezgif.com-gif-maker (17).gif)
+![ezgif.com-gif-maker (17)](./screenshots/classify.gif)
 
 Segmentation / Different K Values
 
-![ezgif.com-gif-maker (18)](C:\Users\DLaptop\Downloads\ezgif.com-gif-maker (18).gif)
+![ezgif.com-gif-maker (18)](./screenshots/segment1.gif)
 
 Modifying a Rectangle into triangles and squares
 
-![ezgif.com-gif-maker (19)](C:\Users\DLaptop\Downloads\ezgif.com-gif-maker (19).gif)
+![ezgif.com-gif-maker (19)](./screenshots/segment2.gif)
 
 NOTE: This application is obviously very basic. Since we are simply determining shapes based on the number of sides and limiting the shapes to things we have defined in the code, it can only do so much.
 
